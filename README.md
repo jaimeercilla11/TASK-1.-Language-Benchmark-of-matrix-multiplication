@@ -1,21 +1,18 @@
 # Matrix Multiplication Performance Analysis
 
-**Course:** [Nombre de tu asignatura]  
-**Student:** [Tu nombre]  
-**Date:** October 2025
 
-## 📋 Project Overview
+## Project Overview
 
 This project presents a comprehensive performance comparison of matrix multiplication algorithms implemented in three programming languages: Python, Java, and C++. The study analyzes execution time, memory usage, and computational efficiency across different matrix sizes.
 
-## 🎯 Objectives
+## Objectives
 
 - Implement the basic O(n³) matrix multiplication algorithm in Python, Java, and C++
 - Benchmark performance with matrices of increasing sizes (64×64 to 512×512)
 - Analyze execution time and memory consumption
 - Compare language-specific features affecting performance
 
-## 📊 Key Results
+## Key Results
 
 | Language | Total Time | Avg Memory | Speed vs C++ |
 |----------|-----------|-----------|--------------|
@@ -32,4 +29,24 @@ This project presents a comprehensive performance comparison of matrix multiplic
 | 256×256 | 23.6532 | 0.0525 | 0.0171 |
 | 512×512 | 236.7505 | 0.7081 | 0.1487 |
 
-## 📁 Repository Structure
+## Repository Structure
+```
+matrix-multiplication-assignment/
+├── README.md
+└── Individual_Assignment/
+    ├── report.pdf                    
+    ├── data/                         
+    │   ├── python_results.txt
+    │   ├── java_results.txt
+    │   └── cpp_results.txt
+    └── code/                         
+        ├── python/
+        │   └── benchmark_matrices.py
+        ├── java/
+        │   └── MatrixBenchmark.java
+        └── cpp/
+            └── benchmark_matrices.cpp
+```
+
+
+
