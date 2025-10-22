@@ -1,5 +1,4 @@
 import time
-
 import tracemalloc
 import psutil
 import os
@@ -90,3 +89,4 @@ if __name__ == "__main__":
         print(f"Total execution time: {total_time:.2f} seconds")
         print(f"Average memory usage: {avg_memory:.2f} MB")
         print(f"Largest matrix tested: {results[-1][0]}x{results[-1][0]}")
+
