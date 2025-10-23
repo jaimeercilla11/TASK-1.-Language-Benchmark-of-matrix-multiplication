@@ -3,9 +3,7 @@ import java.util.List;
 
 public class MatrixBenchmark {
 
-    /**
-     * Algoritmo básico de multiplicación de matrices O(n³)
-     */
+    
     public static double[][] matrixMultiply(double[][] A, double[][] B) {
         int n = A.length;
         int m = B[0].length;
@@ -24,9 +22,7 @@ public class MatrixBenchmark {
         return C;
     }
 
-    /**
-     * Crear una matriz llena con un valor específico
-     */
+    
     public static double[][] createMatrix(int rows, int cols, double value) {
         double[][] matrix = new double[rows][cols];
         for (int i = 0; i < rows; i++) {
@@ -37,9 +33,7 @@ public class MatrixBenchmark {
         return matrix;
     }
 
-    /**
-     * Clase para almacenar resultados del benchmark
-     */
+   
     static class BenchmarkResult {
         int size;
         double executionTime;
@@ -52,45 +46,32 @@ public class MatrixBenchmark {
         }
     }
 
-    /**
-     * Benchmark de multiplicación de matrices para un tamaño dado
-     * Retorna: BenchmarkResult con (tamaño, tiempo_ejecución, memoria_usada)
-     */
+    
     public static BenchmarkResult benchmarkMatrixMultiplication(int size) {
         Runtime runtime = Runtime.getRuntime();
 
-        // Forzar recolección de basura antes de la prueba
         runtime.gc();
 
-        // Obtener memoria inicial
         long memBefore = runtime.totalMemory() - runtime.freeMemory();
 
-        // Crear matrices de prueba
         double[][] A = createMatrix(size, size, 1.5);
         double[][] B = createMatrix(size, size, 2.5);
 
-        // Registrar tiempo de inicio
         long startTime = System.nanoTime();
 
-        // Realizar multiplicación de matrices
         double[][] C = matrixMultiply(A, B);
 
-        // Registrar tiempo de fin
         long endTime = System.nanoTime();
 
-        // Obtener memoria final
         long memAfter = runtime.totalMemory() - runtime.freeMemory();
 
-        // Convertir a segundos y MB
         double executionTime = (endTime - startTime) / 1_000_000_000.0;
         double memoryUsed = (memAfter - memBefore) / (1024.0 * 1024.0);
 
         return new BenchmarkResult(size, executionTime, memoryUsed);
     }
 
-    /**
-     * Ejecutar benchmarks para múltiples tamaños de matrices
-     */
+   
     public static List<BenchmarkResult> runBenchmarks(int[] sizes) {
         System.out.printf("%-10s %-15s %-15s%n", "Size", "Time (s)", "Memory (MB)");
         System.out.println("----------------------------------------------------------------------");
@@ -122,14 +103,12 @@ public class MatrixBenchmark {
 
 
 
-        // Calentar la JVM
         System.out.println("Calentando la JVM...");
         benchmarkMatrixMultiplication(32);
         System.out.println();
 
         List<BenchmarkResult> results = runBenchmarks(testSizes);
 
-        // Estadísticas resumen
         if (!results.isEmpty()) {
             System.out.println("\n");
             System.out.println("SUMMARY");
@@ -151,4 +130,5 @@ public class MatrixBenchmark {
             System.out.printf("Largest matrix tested: %dx%d%n", lastResult.size, lastResult.size);
         }
     }
+
 }
