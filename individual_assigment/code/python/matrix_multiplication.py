@@ -5,9 +5,7 @@ import os
 from typing import List, Tuple
 
 def matrix_multiply(A: List[List[float]], B: List[List[float]]) -> List[List[float]]:
-    """
-    Basic O(n³) matrix multiplication algorithm.
-    """
+   
     n = len(A)
     m = len(B[0])
     p = len(B)
@@ -22,14 +20,11 @@ def matrix_multiply(A: List[List[float]], B: List[List[float]]) -> List[List[flo
     return C
 
 def create_matrix(rows: int, cols: int, value: float = 1.0) -> List[List[float]]:
-    """Create a matrix filled with a specific value."""
     return [[value for _ in range(cols)] for _ in range(rows)]
 
 def benchmark_matrix_multiplication(size: int) -> Tuple[float, float, float]:
-    """
-    Benchmark matrix multiplication for a given size.
-    Returns: (execution_time, memory_used_mb, cpu_percent)
-    """
+   rns: (execution_time, memory_used_mb, cpu_percent)
+    
     A = create_matrix(size, size, 1.5)
     B = create_matrix(size, size, 2.5)
     
@@ -55,7 +50,6 @@ def benchmark_matrix_multiplication(size: int) -> Tuple[float, float, float]:
     return execution_time, memory_mb, avg_cpu
 
 def run_benchmarks(sizes: List[int]):
-    """Run benchmarks for multiple matrix sizes."""
     print(f"{'Size':<10} {'Time (s)':<15} {'Memory (MB)':<15} {'CPU %':<10}")
     print("-" * 70)
     
@@ -89,4 +83,5 @@ if __name__ == "__main__":
         print(f"Total execution time: {total_time:.2f} seconds")
         print(f"Average memory usage: {avg_memory:.2f} MB")
         print(f"Largest matrix tested: {results[-1][0]}x{results[-1][0]}")
+
 
