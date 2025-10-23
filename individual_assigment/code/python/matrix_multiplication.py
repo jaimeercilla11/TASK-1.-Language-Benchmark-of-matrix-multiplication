@@ -55,16 +55,10 @@ def run_benchmarks(sizes: List[int]):
     
     results = []
     for size in sizes:
-        try:
-            exec_time, memory, cpu = benchmark_matrix_multiplication(size)
-            results.append((size, exec_time, memory, cpu))
-            print(f"{size:<10} {exec_time:<15.4f} {memory:<15.2f} {cpu:<10.2f}")
-        except MemoryError:
-            print(f"{size:<10} MEMORY ERROR - Size too large")
-            break
-        except Exception as e:
-            print(f"{size:<10} ERROR: {str(e)}")
-            break
+       exec_time, memory, cpu = benchmark_matrix_multiplication(size)
+       results.append((size, exec_time, memory, cpu))
+       print(f"{size:<10} {exec_time:<15.4f} {memory:<15.2f} {cpu:<10.2f}")
+     
     
     return results
 
@@ -83,5 +77,6 @@ if __name__ == "__main__":
         print(f"Total execution time: {total_time:.2f} seconds")
         print(f"Average memory usage: {avg_memory:.2f} MB")
         print(f"Largest matrix tested: {results[-1][0]}x{results[-1][0]}")
+
 
 
